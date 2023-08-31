@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import com.hsbc.user.dto.RoleDto;
 import com.hsbc.user.dto.RoleUserDto;
 import com.hsbc.user.dto.UserDto;
+import com.hsbc.user.pojo.RolePo;
 import com.hsbc.user.pojo.TokenObject;
 import com.hsbc.user.pojo.UserPo;
 import com.hsbc.user.util.PasswordEncrpytUtil;
@@ -45,7 +46,7 @@ public class UserRoleService {
     /**
      * 用来存放角色
      */
-    private static final Set<String> ROLE_SET = new HashSet<>();
+    private static final Map<String, RolePo> ROLE_MAP = new HashMap<>();
 
     /**
      * key token
@@ -90,14 +91,44 @@ public class UserRoleService {
         return true;
     }
 
+    /**
+     * addrole
+     *
+     * @param roleName roleName
+     * @return true/false Should fail if the role already exists
+     */
     public Boolean createRole(String roleName) {
-        return ROLE_SET.add(roleName);
+        RolePo rolePo = new RolePo();
+        rolePo.setRoleName(roleName);
+        if (ROLE_MAP.containsKey(roleName)) {
+            //角色已存在
+            return false;
+        }
+        ROLE_MAP.put(roleName, rolePo);
+        return true;
     }
 
+    /**
+     * deleteRole
+     *
+     * @param roleDto roleDto
+     * @return true/false Should fail if the role does not exists
+     */
     public Boolean deleteRole(RoleDto roleDto) {
-        return ROLE_SET.remove(roleDto.getRoleName());
+        if (!ROLE_MAP.containsKey(roleDto.getRoleName())) {
+            //角色不存在
+            return false;
+        }
+        ROLE_MAP.remove(roleDto.getRoleName());
+        return true;
     }
 
+    /**
+     * addRoleUser
+     *
+     * @param roleUserDto dto
+     * @return true/false If the role is already associated with the user, nothing should happen
+     */
     public Boolean addRoleUser(RoleUserDto roleUserDto) {
         String username = roleUserDto.getUsername();
         UserPo userPo = USER_MAP.get(username);
@@ -141,12 +172,24 @@ public class UserRoleService {
         TOKEN_MAP.remove(token);
     }
 
+    /**
+     * checkRole
+     *
+     * @param token   token
+     * @param roleDto role
+     * @return true if the user, identified by the token, belongs to the role, false; otherwise, error if token is invalid expired etc
+     */
     public Boolean checkRole(String token, RoleDto roleDto) throws Exception {
         UserPo userPo = checkToken(token);
         //token对应的用户所属角色不对应
         return userPo.getRoles().contains(roleDto.getRoleName());
     }
 
+    /**内部方法
+     * @param token token
+     * @return UserPo
+     * @throws Exception e
+     */
     private UserPo checkToken(String token) throws Exception {
         if (!TOKEN_MAP.containsKey(token)) {
             //token不存在了
@@ -169,6 +212,12 @@ public class UserRoleService {
         return userPo;
     }
 
+    /**
+     * get all roles
+     *
+     * @param token token
+     * @return all roles for the user, error if token is invalid
+     */
     public List<String> allRoles(String token) throws Exception {
         UserPo userPo = checkToken(token);
         return userPo.getRoles();

@@ -97,6 +97,14 @@ class UserRoleServiceTest {
     }
 
     @Test
+    void deleteRoleExist() {
+        userRoleService.createRole("role3");
+        RoleDto roleDto = new RoleDto();
+        roleDto.setRoleName("role3");
+        assertTrue(userRoleService.deleteRole(roleDto));
+    }
+
+    @Test
     void addRoleUser() {
         UserDto userDto = new UserDto();
         userDto.setUsername("zhouda3");

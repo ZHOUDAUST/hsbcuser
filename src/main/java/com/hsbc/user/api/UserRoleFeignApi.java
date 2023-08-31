@@ -33,12 +33,12 @@ public interface UserRoleFeignApi {
     @PostMapping("/deleteuser")
     Boolean deleteUser(@RequestBody UserDto userDto);
 
-    /**adduser
-     * @param roleName roleName
+    /**addrole
+     * @param roleDto roleName
      * @return true/false Should fail if the role already exists
      */
     @PostMapping("/createrole")
-    Boolean createRole(@RequestParam String roleName);
+    Boolean createRole(@RequestBody RoleDto roleDto);
 
     /**deleteRole
      * @param roleDto roleDto

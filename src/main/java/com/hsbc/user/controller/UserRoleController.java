@@ -37,14 +37,14 @@ public class UserRoleController implements UserRoleFeignApi {
     }
 
     /**
-     * adduser
+     * addrole
      *
-     * @param roleName roleName
+     * @param roleDto roleName
      * @return true/false Should fail if the role already exists
      */
     @Override
-    public Boolean createRole(String roleName) {
-        return userRoleService.createRole(roleName);
+    public Boolean createRole(RoleDto roleDto) {
+        return userRoleService.createRole(roleDto.getRoleName());
     }
 
     /**
