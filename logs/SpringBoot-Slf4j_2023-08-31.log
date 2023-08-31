@@ -1,0 +1,38 @@
+17:39:07.625 [restartedMain] INFO  com.hsbc.user.UserApplication - Starting UserApplication using Java 1.8.0_301 on Captain-America.local with PID 36097 (/Users/dazhou/Downloads/openprojects/hsbcuser/target/classes started by dazhou in /Users/dazhou/Downloads/openprojects/hsbcuser)
+17:39:07.626 [restartedMain] DEBUG com.hsbc.user.UserApplication - Running with Spring Boot v2.7.5, Spring v5.3.23
+17:39:07.627 [restartedMain] INFO  com.hsbc.user.UserApplication - No active profile set, falling back to 1 default profile: "default"
+17:39:07.703 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+17:39:08.811 [restartedMain] INFO  o.s.c.c.scope.GenericScope - BeanFactory id=368b5985-60f9-3cd5-ade8-bd49273ee106
+17:39:09.813 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8086 (http)
+17:39:09.825 [restartedMain] INFO  o.a.c.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8086"]
+17:39:09.826 [restartedMain] INFO  o.a.c.core.StandardService - Starting service [Tomcat]
+17:39:09.827 [restartedMain] INFO  o.a.c.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.68]
+17:39:10.053 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+17:39:10.054 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2350 ms
+17:39:10.094 [restartedMain] DEBUG o.s.b.w.s.ServletContextInitializerBeans - Mapping filters: characterEncodingFilter urls=[/*] order=-2147483648, formContentFilter urls=[/*] order=-9900, requestContextFilter urls=[/*] order=-105
+17:39:10.095 [restartedMain] DEBUG o.s.b.w.s.ServletContextInitializerBeans - Mapping servlets: dispatcherServlet urls=[/]
+17:39:10.690 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+17:39:10.949 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 11 mappings in 'requestMappingHandlerMapping'
+17:39:10.981 [restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+17:39:10.993 [restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+17:39:11.085 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+17:39:11.142 [restartedMain] INFO  o.a.c.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8086"]
+17:39:11.177 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8086 (http) with context path ''
+17:39:11.202 [restartedMain] INFO  com.hsbc.user.UserApplication - Started UserApplication in 4.354 seconds (JVM running for 5.153)
+17:40:22.715 [http-nio-8086-exec-2] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:40:22.715 [http-nio-8086-exec-2] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+17:40:22.715 [http-nio-8086-exec-2] DEBUG o.s.w.s.DispatcherServlet - Detected StandardServletMultipartResolver
+17:40:22.715 [http-nio-8086-exec-2] DEBUG o.s.w.s.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+17:40:22.716 [http-nio-8086-exec-2] DEBUG o.s.w.s.DispatcherServlet - Detected FixedThemeResolver
+17:40:22.717 [http-nio-8086-exec-2] DEBUG o.s.w.s.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@60a59045
+17:40:22.718 [http-nio-8086-exec-2] DEBUG o.s.w.s.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@57e4e3d5
+17:40:22.718 [http-nio-8086-exec-2] DEBUG o.s.w.s.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+17:40:22.718 [http-nio-8086-exec-2] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 3 ms
+17:40:22.741 [http-nio-8086-exec-2] DEBUG o.s.w.s.DispatcherServlet - POST "/v1/hsbc/adduser", parameters={}
+17:40:22.759 [http-nio-8086-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.hsbc.user.controller.UserRoleController#addUser(UserDto)
+17:40:22.958 [http-nio-8086-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [UserDto(username=zhouda, password=123456)]
+17:40:26.428 [http-nio-8086-exec-2] DEBUG c.h.u.service.UserRoleService - {"zhouda":{"roles":[],"password":"$2a$12$50rY2wXMFfHZP.WqDWQwcejGrwJKKGeoSY4neHMl5VXRWzr801yDO","username":"zhouda"}}
+17:40:26.428 [http-nio-8086-exec-2] DEBUG c.h.u.service.UserRoleService - {"zhouda":{"roles":[],"password":"$2a$12$50rY2wXMFfHZP.WqDWQwcejGrwJKKGeoSY4neHMl5VXRWzr801yDO","username":"zhouda"}}
+17:40:26.437 [http-nio-8086-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+17:40:26.438 [http-nio-8086-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [true]
+17:40:26.457 [http-nio-8086-exec-2] DEBUG o.s.w.s.DispatcherServlet - Completed 200 OK

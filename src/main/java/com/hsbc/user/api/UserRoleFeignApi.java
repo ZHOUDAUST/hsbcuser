@@ -1,5 +1,6 @@
 package com.hsbc.user.api;
 
+import com.hsbc.user.annotation.ApiVersion;
 import com.hsbc.user.dto.RoleDto;
 import com.hsbc.user.dto.RoleUserDto;
 import com.hsbc.user.dto.UserDto;
@@ -16,7 +17,8 @@ import java.util.List;
  * @author dazhou
  * @since 2023-08-30
  */
-@RequestMapping("/hsbc")
+@RequestMapping("/{version}/hsbc")
+@ApiVersion()
 public interface UserRoleFeignApi {
 
     /**adduser

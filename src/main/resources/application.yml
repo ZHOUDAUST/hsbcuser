@@ -8,8 +8,11 @@ server:
     max-http-post-size: -1
 
 logging:
+  config: classpath:Spring-logback.xml
   level:
     web: DEBUG
+    com.hsbc.user: trace
+
 
 
 

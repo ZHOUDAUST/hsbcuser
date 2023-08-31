@@ -30,7 +30,7 @@ public class TokenExpireTask {
      */
     @Scheduled(cron = "* 0/30 * * * ?")
     public void checkExpireToken() throws Exception {
-        System.out.println("定时检查失效token --------------------");
+        logger.debug("定时检查失效token开始 --------------------");
         for (Map.Entry<String, SecretKey> tokenSecretKeyEntry : TOKEN_MAP.entrySet()) {
             String token = tokenSecretKeyEntry.getKey();
             SecretKey secretKey = tokenSecretKeyEntry.getValue();
@@ -39,7 +39,7 @@ public class TokenExpireTask {
             if (tokenObject.getExpireTime().isBefore(LocalDateTime.now())) {
                 //token过期 删除token
                 TOKEN_MAP.remove(token);
-                System.out.println("删除过期的token成功--------------------" + "用户名为：" + tokenObject.getUsername() + "/n"
+                logger.debug("删除过期的token成功--------------------" + "用户名为：" + tokenObject.getUsername() + "/n"
                 + "过期时间为+" + tokenObject.getExpireTime());
             }
         }

@@ -1,6 +1,7 @@
 package com.hsbc.user.service;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.json.JSONUtil;
 import com.hsbc.user.dto.RoleDto;
 import com.hsbc.user.dto.RoleUserDto;
 import com.hsbc.user.dto.UserDto;
@@ -13,15 +14,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import cn.hutool.json.JSONUtil;
 
 import javax.crypto.SecretKey;
 import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -75,7 +73,6 @@ public class UserRoleService {
         userPo.setPassword(PasswordEncrpytUtil.hashPassword(userDto.getPassword()));
         USER_MAP.putIfAbsent(userDto.getUsername(), userPo);
         logger.debug(JSONUtil.toJsonStr(USER_MAP));
-        log.debug(JSONUtil.toJsonStr(USER_MAP));
         return true;
     }
 
