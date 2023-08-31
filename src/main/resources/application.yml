@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: hsbcuser-service
+
+server:
+  port: 8086
+  tomcat:
+    max-http-post-size: -1
+
+logging:
+  level:
+    web: DEBUG
+
+
+
+
+
