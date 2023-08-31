@@ -25,7 +25,8 @@
 - 通过接口触发验证失效token
 - 手动Invalidate
 - 定时任务定期扫描过期token并删除
-  ![img_1.png](img_1.png)
+
+![img_1.png](img_1.png)
 
 ## 单元测试
 覆盖率已达100%，用例请参照：
