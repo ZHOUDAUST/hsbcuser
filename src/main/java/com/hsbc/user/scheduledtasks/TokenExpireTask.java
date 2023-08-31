@@ -26,7 +26,7 @@ public class TokenExpireTask {
 
     /**
      * 定时检查失效token
-     * 每1min执行一次
+     * 每30min执行一次
      */
     @Scheduled(cron = "* 0/30 * * * ?")
     public void checkExpireToken() throws Exception {
