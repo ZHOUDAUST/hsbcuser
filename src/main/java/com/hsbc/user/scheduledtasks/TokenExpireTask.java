@@ -26,9 +26,9 @@ public class TokenExpireTask {
 
     /**
      * 定时检查失效token
-     * 每30min执行一次
+     * 每1min执行一次
      */
-    @Scheduled(cron = "* 0/30 * * * ?")
+    @Scheduled(cron = "* 0/1 * * * ?")
     public void checkExpireToken() throws Exception {
         logger.debug("定时检查失效token开始 --------------------");
         for (Map.Entry<String, SecretKey> tokenSecretKeyEntry : TOKEN_MAP.entrySet()) {
