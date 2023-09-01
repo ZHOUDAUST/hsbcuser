@@ -5,9 +5,9 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 /**
  * 密码加密
  */
-public class PasswordEncrpytUtil {
+public class PasswordEncryptUtil {
 
-    private PasswordEncrpytUtil() {
+    private PasswordEncryptUtil() {
     }
 
     /**加密方法

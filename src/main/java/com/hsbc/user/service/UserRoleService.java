@@ -8,7 +8,7 @@ import com.hsbc.user.dto.UserDto;
 import com.hsbc.user.pojo.RolePo;
 import com.hsbc.user.pojo.TokenObject;
 import com.hsbc.user.pojo.UserPo;
-import com.hsbc.user.util.PasswordEncrpytUtil;
+import com.hsbc.user.util.PasswordEncryptUtil;
 import com.hsbc.user.util.TokenGenerator;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -70,7 +70,7 @@ public class UserRoleService {
         }
         UserPo userPo = new UserPo();
         userPo.setUsername(userDto.getUsername());
-        userPo.setPassword(PasswordEncrpytUtil.hashPassword(userDto.getPassword()));
+        userPo.setPassword(PasswordEncryptUtil.hashPassword(userDto.getPassword()));
         USER_MAP.putIfAbsent(userDto.getUsername(), userPo);
         logger.debug(JSONUtil.toJsonStr(USER_MAP));
         return true;
@@ -147,7 +147,7 @@ public class UserRoleService {
      */
     public String authenticate(UserDto userDto) throws Exception {
         UserPo userPo = USER_MAP.get(userDto.getUsername());
-        if (userPo == null || !PasswordEncrpytUtil.checkPassword(userDto.getPassword(), userPo.getPassword())) {
+        if (userPo == null || !PasswordEncryptUtil.checkPassword(userDto.getPassword(), userPo.getPassword())) {
             //如果用户not found 信息不实 则返回error
             throw new RuntimeException("user not found error");
         }

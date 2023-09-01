@@ -7,19 +7,33 @@
 - 加密token生成
 - 根据token验证角色
 - 根据token查询用户所有角色
-- token定期失效管理功能
+- token定期失效管理功能  
+
+值得注意的是，除了实现基础的题目要求之外，本项目还在规范上做了优化，详情见最后一栏"加分功能点"。
 
 ## 用到的技术栈
 - springcloud 2021.0.1 version + springboot 2.7.5 version
 - maven
 - java8
-- 数据均存在内存
+- spring定时任务
 
 ## 用到的jdk之外的依赖
 可以在pom文件中找到对应依赖，分别是：
 - hutool-all hutool工具，本项目用作处理token的json格式化
 - spring-security-crypto 用作处理密码的hash加密与验证
 - 其他springboot框架自带依赖
+
+## 项目结构
+│ ├── hsbcuser  
+│ │ ├── annotation api版本号管理  
+│ │ ├── UserRoleFeignApi.java 提供外部调用的restful api  
+│ │ ├── UserRoleController.java mvc controller用来逻辑控制  
+│ │ ├── dto 数据传输层对象 mvc view  
+│ │ ├── pojo 数据存储层对象 mvc model  
+│ │ ├── TokenExpireTask.java token过期检验定时任务  
+│ │ ├── UserRoleService.java 提供具体用户服务  
+│ │ ├── PasswordEncryptUtil.java 提供密码加密与验证  
+│ │ ├── TokenGenerator.java 提供加密的token生成与解密
 
 ## token过期策略
 - 通过接口触发验证失效token
